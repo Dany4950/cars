@@ -1,11 +1,10 @@
 // navigation.dart
 import 'package:cars/cars.dart';
-import 'package:cars/dashboard.dart';
+import 'package:cars/homescreen.dart';
 import 'package:cars/notifications.dart';
 import 'package:cars/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-
 
 class Navigation extends StatefulWidget {
   final Widget initialScreen;
@@ -23,9 +22,8 @@ class NavigationState extends State<Navigation> {
     // Changed here
     CarsScreen(),
     NotificationsScreen(),
-    const DashboardScreen(),
+    const HomeScreen(),
     const ProfileScreen(),
-
   ];
 
   late Widget currentScreen; // Changed here
@@ -38,7 +36,7 @@ class NavigationState extends State<Navigation> {
 
   Color getNavBarBackgroundColor() {
     // Changed here
-    if (currentScreen is DashboardScreen) {
+    if (currentScreen is HomeScreen) {
       // Changed here
       return const Color(0xFFF5F7FB);
     } else if (currentScreen is NotificationsScreen) {
@@ -50,7 +48,7 @@ class NavigationState extends State<Navigation> {
     } else if (currentScreen is CarsScreen) {
       // Changed here
       return Colors.deepPurple;
-    }  else {
+    } else {
       return const Color(0xFFF5F7FB);
     }
   }
@@ -65,10 +63,10 @@ class NavigationState extends State<Navigation> {
           backgroundColor: Colors.transparent,
           color: Colors.blueGrey,
           items: const [
-            Icon(Icons.assignment, size: 30, color: Colors.white),
+            Icon(Icons.list, size: 30, color: Colors.white),
             Icon(Icons.notifications, size: 30, color: Colors.white),
             Icon(Icons.home, size: 30, color: Colors.white),
-            Icon(Icons.directions_bus, size: 30, color: Colors.white),
+            Icon(Icons.favorite, size: 30, color: Colors.white),
             Icon(Icons.person, size: 30, color: Colors.white),
           ],
           index: selectedIndex, // Changed here
